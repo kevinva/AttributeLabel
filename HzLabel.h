@@ -13,8 +13,9 @@
 @property (nonatomic, assign) CGFloat lineSpace;
 @property (nonatomic, retain) UIFont *font;
 @property (nonatomic, retain) NSString *text;
-
+@property (nonatomic, retain) UIColor *textColor;
 
 + (CGFloat)boundingHeightForWidth:(CGFloat)w string:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)space;
+
 
 @end

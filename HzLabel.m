@@ -26,6 +26,14 @@
     return self;
 }
 
+- (void)dealloc{
+    self.text = nil;
+    self.textColor = nil;
+    self.font = nil;
+    
+    [super dealloc];
+}
+
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -58,7 +66,7 @@
 #pragma mark - Private methods
 
 - (NSAttributedString *)stylishString{
-    if(_text && _font){
+    if(_text){
         //设置断行方式
         CTParagraphStyleSetting lineBreak;
         CTLineBreakMode lineBreakMode = kCTLineBreakByWordWrapping;
@@ -79,9 +87,18 @@
         CTParagraphStyleSetting settings[] = {lineBreak, lineSpacing};
         CTParagraphStyleRef paragraphStyle = CTParagraphStyleCreate(settings, 2);
         
+        if(!_textColor){
+            self.textColor = [UIColor blackColor];
+        }
+        
+        if(!_font){
+            self.font = [UIFont systemFontOfSize:17.0f];
+        }
+        
         CTFontRef ctFont = CTFontCreateWithName((CFStringRef)_font.fontName, _font.pointSize, NULL);
         NSDictionary *attribute = [NSDictionary dictionaryWithObjectsAndKeys:
                                    (id)ctFont, kCTFontAttributeName,
+                                   _textColor.CGColor, kCTForegroundColorAttributeName,
                                    (id)paragraphStyle, kCTParagraphStyleAttributeName, nil];
         NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:_text attributes:attribute];
         
@@ -132,5 +149,7 @@
     
     return suggestedSize.height;
 }
+
+
 
 @end
