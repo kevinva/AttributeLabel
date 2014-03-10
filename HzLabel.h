@@ -16,6 +16,6 @@
 @property (nonatomic, retain) UIColor *textColor;
 
 + (CGFloat)boundingHeightForWidth:(CGFloat)w string:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)space;
-
+- (void)refresh;
 
 @end

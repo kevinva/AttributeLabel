@@ -147,9 +147,13 @@
     CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString((CFAttributedStringRef)attributedString);
     CGSize suggestedSize = CTFramesetterSuggestFrameSizeWithConstraints(frameSetter, CFRangeMake(0, 0), NULL, CGSizeMake(w, 10000), NULL);
     
+    CFRelease(frameSetter);
+    
     return suggestedSize.height;
 }
 
-
+- (void)refresh{
+    [self setNeedsDisplay];
+}
 
 @end
