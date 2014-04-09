@@ -35,12 +35,8 @@
 }
 
 - (void)layoutSubviews{
-    self.backgroundColor = [UIColor redColor];
-    
-    for(UIView *subView in self.subviews){
-        [subView removeFromSuperview];
-    }
-    
+//    self.backgroundColor = [UIColor redColor];
+
     NSString *actualMainText = [HzTagLabel generateActualTextWithTag:_tagText main:_mainText font:_mainTextFont];
     HzLabel *mainLabel = [[HzLabel alloc] init];
     mainLabel.text = actualMainText;
@@ -64,11 +60,7 @@
         [self addSubview:tagBtn];
     }
     
-    CGRect bound = self.bounds;
-    bound.size.height = [HzTagLabel calculateHeightForWidth:self.bounds.size.width mainText:_mainText tagText:_tagText font:_mainTextFont lineSpace:_lineSpace];
-    self.bounds = bound;
-    
-    NSLog(@"%s, subViews: %@", __FUNCTION__, self.subviews);
+//    NSLog(@"%s, subViews: %@", __FUNCTION__, self.subviews);
 }
 
 #pragma mark - Private methods
@@ -109,6 +101,10 @@
 #pragma mark - Public methods
 
 - (void)refresh{
+    for(UIView *subView in self.subviews){
+        [subView removeFromSuperview];
+    }
+    
     [self setNeedsLayout];
 }
 
