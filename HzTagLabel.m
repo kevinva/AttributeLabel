@@ -37,6 +37,10 @@
 - (void)layoutSubviews{
     self.backgroundColor = [UIColor redColor];
     
+    for(UIView *subView in self.subviews){
+        [subView removeFromSuperview];
+    }
+    
     NSString *actualMainText = [HzTagLabel generateActualTextWithTag:_tagText main:_mainText font:_mainTextFont];
     HzLabel *mainLabel = [[HzLabel alloc] init];
     mainLabel.text = actualMainText;
@@ -105,7 +109,7 @@
 #pragma mark - Public methods
 
 - (void)refresh{
-    [self setNeedsDisplay];
+    [self setNeedsLayout];
 }
 
 + (CGFloat)calculateHeightForWidth:(CGFloat)w mainText:(NSString *)main tagText:(NSString *)tag font:(UIFont *)font lineSpace:(CGFloat)space{
