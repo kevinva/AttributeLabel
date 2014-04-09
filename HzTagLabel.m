@@ -44,7 +44,7 @@
     NSString *actualMainText = [HzTagLabel generateActualTextWithTag:_tagText main:_mainText font:_mainTextFont];
     HzLabel *mainLabel = [[HzLabel alloc] init];
     mainLabel.text = actualMainText;
-    mainLabel.textColor = [UIColor blackColor];
+    mainLabel.textColor = _mainTextColor;
     mainLabel.lineSpace = _lineSpace;
     mainLabel.font = _mainTextFont;
     mainLabel.backgroundColor = [UIColor clearColor];
