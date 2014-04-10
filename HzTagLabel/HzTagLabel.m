@@ -54,10 +54,19 @@
         UIButton *tagBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [tagBtn addTarget:self action:@selector(clickTag:) forControlEvents:UIControlEventTouchUpInside];
         tagBtn.frame = CGRectMake(0.0f, 0.0f, tagSize.width, tagSize.height);
-        tagBtn.titleLabel.font = _tagTextFont;
-        tagBtn.backgroundColor = kColorTagBackgroundDefault;
-        [tagBtn setTitle:_tagText forState:UIControlStateNormal];
+        [tagBtn setImage:[UIImage imageNamed:@"button_tag_normal_iPhone"] forState:UIControlStateNormal];
+        [tagBtn setImage:[UIImage imageNamed:@"button_tag_highlighted_iPhone"] forState:UIControlStateHighlighted];
         [self addSubview:tagBtn];
+        
+        UILabel *btnLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+        btnLabel.backgroundColor = [UIColor clearColor];
+        btnLabel.font = _tagTextFont;
+        btnLabel.textColor = [UIColor whiteColor];
+        btnLabel.textAlignment = NSTextAlignmentCenter;
+        btnLabel.text = _tagText;
+        btnLabel.frame = CGRectMake(0.0f, 0.0f, tagBtn.frame.size.width, tagBtn.frame.size.height);
+        [tagBtn addSubview:btnLabel];
+        [btnLabel release];
     }
     
 //    NSLog(@"%s, subViews: %@", __FUNCTION__, self.subviews);
