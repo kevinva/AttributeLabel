@@ -9,6 +9,7 @@
 #import "HzTagLabel.h"
 #import "HzLabel.h"
 #import <CoreText/CoreText.h>
+#import <QuartzCore/QuartzCore.h>
 
 #define kColorTagBackgroundDefault [UIColor colorWithRed:24.0 / 255 green:156.0 / 255 blue:86.0/ 255 alpha:1.0]
 
@@ -56,6 +57,8 @@
         tagBtn.frame = CGRectMake(0.0f, 0.0f, tagSize.width, tagSize.height);
         [tagBtn setImage:[UIImage imageNamed:@"button_tag_normal_iPhone"] forState:UIControlStateNormal];
         [tagBtn setImage:[UIImage imageNamed:@"button_tag_highlighted_iPhone"] forState:UIControlStateHighlighted];
+        tagBtn.layer.cornerRadius = 3.0;
+        tagBtn.layer.masksToBounds = YES;
         [self addSubview:tagBtn];
         
         UILabel *btnLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -74,18 +77,18 @@
 
 #pragma mark - Private methods
 
-+ (NSString *)generateActualTextWithTag:(NSString *)tag main:(NSString *)main font:(UIFont *)font{
++ (NSString *)generateActualTextWithTag:(NSString *)tagText main:(NSString *)main font:(UIFont *)font{
     if(!main){
         return nil;
     }
     
-    if(!tag){
+    if((NSNull *)tagText == [NSNull null] || !tagText || tagText.length <= 0){
         return [NSString stringWithString:main];
     }
     else{
         NSString *spaceText = @" ";
         CGSize spaceSize = [spaceText sizeWithFont:font constrainedToSize:CGSizeMake(100.0f, 70.0f) lineBreakMode:NSLineBreakByWordWrapping];
-        CGSize tagSize = [tag sizeWithFont:font constrainedToSize:CGSizeMake(200.0f, 70.0f) lineBreakMode:NSLineBreakByWordWrapping];
+        CGSize tagSize = [tagText sizeWithFont:font constrainedToSize:CGSizeMake(200.0f, 70.0f) lineBreakMode:NSLineBreakByWordWrapping];
         NSInteger extraSpaceCounts = 3; //补足一些误差
         NSInteger spaceCount = tagSize.width / spaceSize.width + extraSpaceCounts;
         NSMutableString *spaceStr = [[NSMutableString alloc] init];
