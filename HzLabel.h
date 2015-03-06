@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@class HzLabelBuilder;
+
 @interface HzLabel : UIView
 
 @property (nonatomic, assign) CGFloat lineSpace;
@@ -15,6 +17,7 @@
 @property (nonatomic, retain) NSString *text;
 @property (nonatomic, retain) UIColor *textColor;
 
++ (instancetype)labelWithBuilder:(void (^)(HzLabelBuilder *builder))block;
 + (CGFloat)boundingHeightForWidth:(CGFloat)w string:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)space;
 - (void)refresh;
 

@@ -8,6 +8,7 @@
 
 #import "HzLabel.h"
 #import <CoreText/CoreText.h>
+#import "HzLabelBuilder.h"
 
 @interface HzLabel ()
 
@@ -22,6 +23,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -41,7 +43,7 @@
 {
     // Drawing code
     
-    //[super drawRect:rect];
+//    [super drawRect:rect];
     
     CGContextRef context = UIGraphicsGetCurrentContext();
     
@@ -50,7 +52,6 @@
     
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathAddRect(path, NULL, self.bounds);
-    
 
     NSAttributedString *attributedString = [self stylishString];
     
@@ -108,14 +109,22 @@
         return [attributedString autorelease];
     }
     
-    return nil;
+    return [[[NSAttributedString alloc] initWithString:@"" attributes:nil] autorelease];//注意，返回nil会崩溃
 }
 
-#pragma mark - Public methods
+#pragma mark - Public Interfaces
+
++ (instancetype)labelWithBuilder:(void (^)(HzLabelBuilder *))block{
+    NSParameterAssert(block);
+    
+    HzLabelBuilder *builder = [[[HzLabelBuilder alloc] init] autorelease];
+    block(builder);
+    return [builder build];
+}
 
 + (CGFloat)boundingHeightForWidth:(CGFloat)w string:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)space{
     if(!text || !font || space < 0){
-        return -1.0f;
+        return 0.0f;
     }
     
     //设置断行方式
