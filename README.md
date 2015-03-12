@@ -1,14 +1,36 @@
 ColumnStyleText
 ===============
 
-Using CoreText,  the view can be used as Label, which can be setted the line space.
+###Purpose
 
-How to use
-===============
+As you know, the standard UIKit component, UILabel, can't not be configured the line space. Through using UITextView with html style text, it's a little hard to use.
+With coreText, the view can be used as Label, which can be configured the line space, just by setting a property.
 
-1. You can use the method 
-   "(CGFloat)boundingHeightForWidth:(CGFloat)w string:(NSString *)text font:(UIFont *)font lineSpace:(CGFloat)space"
-  to get the content text heigh.
+###Requirements
 
-2. more for later...
+* iOS5+
+* No ARC
 
+###Installations
+
+Just drag HzLabel.h, HzLabel.m, HzLabelBuilder.h and HzLabelBuilder.m these four files to you project.
+
+###Demo
+
+* By coding
+
+It's recommendatory to use HzLabelBuilder to create HzLabel:
+```objective-c
+HzLabel *label = [HzLabel labelWithBuilder:^(HzLabelBuilder *builder) {
+
+  builder.text = @"Test";
+  builder.font = [UIFont systemFontOfSize:10.0f];
+  builder.lineSpace = 3.0f;
+  builder.textColor = [UIColor darkTextColor];
+  builder.contentRect = CGRectMake(0, 0, 100, 30);
+
+}];
+
+```
+
+* By Interface Builder

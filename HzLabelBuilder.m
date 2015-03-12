@@ -23,7 +23,7 @@
         self.font = [UIFont systemFontOfSize:21.0f];
     }
     
-    HzLabel *label = [[HzLabel alloc] initWithFrame:_cotnentRect];
+    HzLabel *label = [[HzLabel alloc] initWithFrame:_contentRect];
     label.textColor = _textColor;
     label.text = _text;
     label.font = _font;

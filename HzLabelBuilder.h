@@ -13,7 +13,7 @@
 
 @interface HzLabelBuilder : NSObject
 
-@property (nonatomic, assign) CGRect cotnentRect;
+@property (nonatomic, assign) CGRect contentRect;
 @property (nonatomic, assign) CGFloat lineSpace;
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, strong) NSString *text;
