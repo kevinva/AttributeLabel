@@ -34,3 +34,9 @@ HzLabel *label = [HzLabel labelWithBuilder:^(HzLabelBuilder *builder) {
 ```
 
 * By Interface Builder
+
+Drag a UIView and then set its class "HzLabel".
+
+With the new feature Xcode6 (IBDesignable and IBInspectable), some properties can be configured at realtime in IB, such as lineSpace, textColor and text:
+<img align="center" src="https://raw.githubusercontent.com/kevinva/AttributeLabel/master/Demo/demo1.png" alt="ScreenShot" width="300">
+<img align="center" src="https://raw.githubusercontent.com/kevinva/AttributeLabel/master/Demo/demo2.png" alt="ScreenShot" width="300">
