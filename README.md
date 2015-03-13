@@ -13,9 +13,10 @@ With coreText, the view can be used as Label, which can be configured the line s
 
 ###Installations
 
-Just drag HzLabel.h, HzLabel.m, HzLabelBuilder.h and HzLabelBuilder.m these four files to you project.
+1.Import CoreText Framework;
+2.Drag HzLabel.h, HzLabel.m, HzLabelBuilder.h and HzLabelBuilder.m these four files to you project.
 
-###Demo
+###How to use
 
 * By coding
 
@@ -35,9 +36,9 @@ HzLabel *label = [HzLabel labelWithBuilder:^(HzLabelBuilder *builder) {
 
 * By Interface Builder
 
-Drag a UIView and then set its class "HzLabel".
+Drag a UIView in your Xib and then set its class "HzLabel".
 
-With the new feature Xcode6 (IBDesignable and IBInspectable), some properties can be configured at realtime in IB, such as lineSpace, textColor and text:
+Thanks to the new feature Xcode6 (IBDesignable and IBInspectable), some properties can be configured at realtime in IB, such as lineSpace, textColor and text:
 
 ###
 <img align="center" src="https://raw.githubusercontent.com/kevinva/AttributeLabel/master/Demo/demo1.png" alt="ScreenShot" width="300">
