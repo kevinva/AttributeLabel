@@ -13,7 +13,7 @@ With coreText, the view can be used as Label, which can be configured the line s
 
 ###Installations
 
-1.Import CoreText Framework;
+1.Import CoreText Framework;   
 2.Drag HzLabel.h, HzLabel.m, HzLabelBuilder.h and HzLabelBuilder.m these four files to you project.
 
 ###How to use
