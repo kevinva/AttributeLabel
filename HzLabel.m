@@ -28,6 +28,16 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        // Initialization code
+        self.backgroundColor = [UIColor clearColor];
+    }
+    return self;
+    
+}
+
 - (void)dealloc{
     self.text = nil;
     self.textColor = nil;
@@ -35,7 +45,6 @@
     
     [super dealloc];
 }
-
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

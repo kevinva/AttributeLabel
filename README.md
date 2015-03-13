@@ -43,3 +43,7 @@ Thanks to the new feature Xcode6 (IBDesignable and IBInspectable), some properti
 ###
 <img align="center" src="https://raw.githubusercontent.com/kevinva/AttributeLabel/master/Demo/demo1.png" alt="ScreenShot" width="300">
 <img align="center" src="https://raw.githubusercontent.com/kevinva/AttributeLabel/master/Demo/demo2.png" alt="ScreenShot" width="300">
+
+
+###License
+HzLabel is available under the [MIT license](http://mit-license.org/).
